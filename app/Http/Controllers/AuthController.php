@@ -13,26 +13,45 @@ class AuthController extends Controller
         $this->middleware('auth:api')->only('logout');
     }
 
-    public function register(Request $request)
+    // public function register(Request $request)
+    // {
+    //     var_dump("register"); die;
+    //     $this->validate($request, [
+    //         'name' => 'required|max:255',
+    //         'email' => 'required|email|unique:users',
+    //         'password' => 'required|between:6,25|confirmed',
+    //        // 'profile_pic' => 'required|image',
+    //     ]);
+
+    //     $user = new User($request->all());
+    //     $user->password = bcrypt($request->password);
+
+    //     if($request->hasFile('photo')){
+    //         $photo = $request->file('photo');
+    //         $filename = time() . '.' . $photo->getClientOriginalExtension();
+    //         Image::make($photo)->resize(350, 350)->save( public_path('/uploads/' . $filename ) );
+
+    //         $user->profile_pic=$filename;
+    //     }
+
+    //     $user->save();
+
+    //     return response()
+    //         ->json([
+    //             'registered' => true
+    //         ]);
+    // }
+
+     public function register(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
-            'password' => 'required|between:6,25|confirmed',
-            'profile_pic' => 'required|image',
+            'password' => 'required|between:6,25|confirmed'
         ]);
 
         $user = new User($request->all());
         $user->password = bcrypt($request->password);
-
-        if($request->hasFile('photo')){
-            $photo = $request->file('photo');
-            $filename = time() . '.' . $photo->getClientOriginalExtension();
-            Image::make($photo)->resize(350, 350)->save( public_path('/uploads/' . $filename ) );
-
-            $user->profile_pic=$filename;
-        }
-
         $user->save();
 
         return response()
@@ -41,9 +60,10 @@ class AuthController extends Controller
             ]);
     }
 
+
     public function login(Request $request)
     {
-        var_dump("LOGIN"); die;
+      
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|between:6,25'

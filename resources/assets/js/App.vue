@@ -9,6 +9,10 @@
 				
 			</div>
 
+			<div class="navbar__item">
+				<router-link to="/register">REGISTER</router-link>
+			</div>
+
 			<div :class="[isOpen ? 'menu-wrap' : 'menu-wrap-close']" transition="expand">
 				
 					<div class="icon-list">
@@ -24,7 +28,6 @@
 								<span>Portfolio</span>
 						</a>
 					</div>
-				
 				<button  @click.stop="closeMenu" class="close-button" id="close-button"></button>
 			</div>
 				

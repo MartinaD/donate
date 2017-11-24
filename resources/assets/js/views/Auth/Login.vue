@@ -16,6 +16,7 @@
         </div>
     </form>
 </template>
+
 <script type="text/javascript">
     import Flash from '../../helpers/flash'
     import Auth from '../../store/auth'

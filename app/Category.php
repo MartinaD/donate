@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
   
-    public function posts()
+    public function campaigns()
     {
-    	return $this->hasMany(Post::class)->orderBy('created_at','desc');
+    	return $this->hasMany(Campaign::class)->orderBy('created_at','desc');
     }
 
 

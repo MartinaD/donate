@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 use App\User;
-use Hash;
 
 class AuthController extends Controller
 {
@@ -69,13 +70,13 @@ class AuthController extends Controller
             'password' => 'required|between:6,25'
         ]);
 
-        $user = User::where('email', $request->email)
-            ->first();
-
+        $user = User::where('email', $request->email)->first();
+        
+        
         if($user && Hash::check($request->password, $user->password)) {
             // generate new api token
-            $user->api_token = str_random(60);
-            $user->save();
+          $user->api_token = str_random(60);
+          $user->save();
 
             return response()
                 ->json([
@@ -93,7 +94,6 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        file_put_contents("test.txt", "LOGOUT");
         $user = $request->user();
         $user->api_token = null;
         $user->save();

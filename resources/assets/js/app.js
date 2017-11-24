@@ -1,5 +1,4 @@
 import Vue from 'vue'
-
 import App from './App.vue' //main app component
 import router from './router'
 
@@ -9,3 +8,6 @@ const app = new Vue({
 	components: { App },
 	router
 })
+
+
+

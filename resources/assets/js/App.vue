@@ -9,8 +9,12 @@
 				
 			</div>
 
-			<div class="navbar__item">
-				<router-link to="/register">REGISTER</router-link>
+			<div class="navbar__item" v-if="auth">
+				<router-link to="/campaign/create">Create new campaign</router-link>
+			</div>
+
+			<div class="navbar__item" v-if="guest">
+				<router-link to="/login">Create new campaign</router-link>
 			</div>
 
 			<div :class="[isOpen ? 'menu-wrap' : 'menu-wrap-close']" transition="expand">
@@ -18,7 +22,12 @@
 					<div class="icon-list">
 						<a href="#home" class="logo page-scroll waves-effect">Navigator</a>
 
-						<a href="#login" class="page-scroll waves-effect">
+						<a v-if="auth" class="page-scroll waves-effect">
+							<i class="fa fa-fw fa-user"></i>
+								<span @click.stop="logout">Logout</span>
+						</a>
+
+						<a v-if="guest" href="#login" class="page-scroll waves-effect">
 							<i class="fa fa-fw fa-user"></i>
 								<span>Login</span>
 						</a>
@@ -84,6 +93,7 @@
 			}
 		},
 		computed: {
+
 			auth() {
 				if(this.authState.api_token) {
 					return true
@@ -96,9 +106,17 @@
 		},
 		methods: {
 			logout() {
-				// remove token
-				Auth.remove()
-				Flash.setSuccess('Успешно се одјавивте!')
+			alert("Logout")
+				post('/api/logout')
+				    .then((res) => {
+				    alert("In")
+				        if(res.data.done) {
+				            // remove token
+				            Auth.remove()
+				            Flash.setSuccess('You have successfully logged out.')
+				            this.$router.push('/login')
+				        }
+				    })
 			},
 			openMenu() {
 				this.isOpen = !this.isOpen;

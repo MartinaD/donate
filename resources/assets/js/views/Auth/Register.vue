@@ -24,6 +24,8 @@
             <button :disabled="isProcessing" class="btn btn__primary">Register</button>
         </div>
     </form>
+
+    
 </template>
 <script type="text/javascript">
     import Flash from '../../helpers/flash'
@@ -35,10 +37,10 @@
                     name: '',
                     email: '',
                     password: '',
-                    password_confirmation: ''
+                    password_confirmation: '',
                 },
                 error: {},
-                isProcessing: false
+                isProcessing: false,
             }
         },
         methods: {
@@ -49,7 +51,7 @@
                     .then((res) => {
                         if(res.data.registered) {
                             Flash.setSuccess('Congratulations! You have now successfully registered.')
-                            this.$router.push('/login')
+                            this.$router.push('/login')                            
                         }
                         this.isProcessing = false
                     })
@@ -59,7 +61,7 @@
                         }
                         this.isProcessing = false
                     })
-            }
+            }            
         }
     }
 </script>

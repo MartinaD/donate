@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'api_token'
+        'name', 'email', 'password',
     ];
 
     /**
@@ -24,11 +24,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'api_token'
+        'password', 'api_token',
     ];
 
-    public function posts()
+    public function campaigns()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Campaign::class);
     }
 }

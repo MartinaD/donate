@@ -1,11 +1,11 @@
 export function toMulipartedForm(form, mode) {
-	if(mode === 'edit' && typeof form.image === 'string') {
-		const temp = JSON.parse(JSON.stringify(form))
-		delete temp.image
-		return temp
-	} else {
-		return objectToFormData(form)
-	}
+    if(mode === 'edit' && typeof form.image === 'string') {
+        const temp = JSON.parse(JSON.stringify(form))
+        delete temp.image
+        return temp
+    } else {
+        return objectToFormData(form)
+    }
 }
 
 export function objectToFormData(obj, form, namespace) {

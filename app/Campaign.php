@@ -4,14 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Campaign extends Model
 {
-
-	protected $fillable = [
+ 	protected $fillable = [
     	'title', 'body', 'image'
     ];
 
-	protected $table ='posts';
+	protected $table ='campaigns';
     //eden Post moze da ima poveke komentari
     // public function comments()
     // {
@@ -27,6 +26,25 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+     public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'campaign_tag', 
+             'campaign_id', 'tag_id');
+    }
+
+     public static function form()
+    {
+        return [
+            'title' => '',
+            'image' => '',
+            'body' => '',
+            'category_id' => '',
+            'user_id' => '',
+            'goalamount' => ''
+
+        ];
     }
 
     // public static function form()

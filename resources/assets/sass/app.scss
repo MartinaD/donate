@@ -463,7 +463,7 @@ img {
         margin-top: 10px;
     }
     &__list {
-        width: 960px;
+        width: 80%;
         margin: 0 auto;
         padding-top: 25px;
         display: flex;
@@ -471,6 +471,7 @@ img {
     }
     &__item {
         width: 33.333%;
+        height: 70%;
     }
     &__inner {
         display: block;
@@ -562,25 +563,11 @@ img {
 
 
 
-.header {
-    text-align: center;
-    color: #fff;
-    background-attachment: scroll;
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
 
-.intro-text {
-    position: relative;
-    padding: 20% 0 15% 0;
-}
 
-.header .intro-text h1 {    
-    font-size: 50px;
+
+.containter-category .intro-text h1 {    
+    font-size: 30px;
     font-weight: 700;
     line-height: 50px;
     letter-spacing: 5px;
@@ -596,8 +583,8 @@ img {
     font-family: 'Oswald', sans-serif;
 }
 
-.header .intro-text p {
-    font-size: 30px;
+.containter-category .intro-text p {
+    font-size: 16px;
     font-weight: 300;
     line-height: 35px;
     letter-spacing: 1px;
@@ -612,11 +599,16 @@ img {
     animation-duration: 2s;
 }
 
-.header .intro-text .btn-primary {
-    padding: 15px 25px;
-    font-size: 16px;
+.containter-category .intro-text .btn-primary {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  background: #decece;
 }
 
+.containter-category .intro-text .btn-primary:hover {
+  background-color: #4CAF50; /* Green */
+    color: white;
+}
 
 
 
@@ -638,14 +630,18 @@ img {
     background-color: #28ABE3;    
 }
 
-.welcome-section {
+.campaign-section {
   background-color: #fff;
     padding-bottom: 40px;
     box-shadow: 0 0 3px #ccc;
-    padding: 30px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    height: 75%;
+    padding-top: 10px;
+
 }
 
-.welcome-section img {
+.campaign-section img {
     width: 100%;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -654,17 +650,17 @@ img {
 }
 
 
-.welcome-section h4 {
+.campaign-section h4 {
     padding-top: 20px;
     color: #777;
 }
 
-.welcome-section p {
+.campaign-section p {
     padding-top: 20px;
     color: #999;
 }
 
-.welcome-section:hover .border {
+.campaign-section:hover .border {
     margin: 0 40%;
 }
 
@@ -901,29 +897,39 @@ FACTS
     margin-top: 100px;
 }
 
-#clients {
+#categories {
     background-color: #7AE2DE;
     padding: 0 0 50px;
     border-bottom: 15px double #fff;
 }
+
+.category__inner{
+    display: block;
+    background: #7AE2DE;
+    margin: 10px;
+    color: grey;
+    padding-bottom: -25px;
+}
+
+.show-more{
+  margin-left: 488px;
+  padding-left: 82px;
+  cursor: pointer;
+  padding-top: 30px;
+}
+
 #owl-demo {
     padding-top: 30px;
     display: inline-flex;
+    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+overflow: hidden;
 }
-.owl-carousel {
-    display: none;
-    position: relative;
-    width: 100%;
-    -ms-touch-action: pan-y;
-}
+
 
 .item{
   padding: 60px 30px 0px 40px;
       font-size: 20px;
 }
-
-
-
 
 .row {
     display: inline-flex;
@@ -977,7 +983,7 @@ FACTS
 
 .count-item i{
     font-size: 110px;
-    color: #fff;
+    color: grey;
 }
 
 @media only screen and (max-width : 992px){
@@ -988,7 +994,17 @@ FACTS
 }
 
 #testimonials {
-    padding: 1px 343px;
+     /* width: 537px; */
+    text-align: center;
+    /* padding: 10px 343px; */
+    float: left;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.testimonial{
+  padding: 25px;
+  cursor: -webkit-grab;
 }
 
 #testimonials .block-heading h1 {
@@ -998,17 +1014,23 @@ FACTS
     font-size: 55px;
 }
 
-.owl-carousel{
-  display: block;
+#testimonials .testimonial > img {
+    border-radius: 100%;
+    margin-bottom: 15px;
+    border: red;
+    width:  220px;
+    height: 220px;
+    margin-left: 343px;
 }
 
-
-
-.slide-item {
-  -vendor-animation-duration: 3s;
-  -vendor-animation-delay: 2s;
-  -vendor-animation-iteration-count: infinite;
+.testimonial p {
+    line-height: 23px;
+    margin-top: 20px;
+    padding-left: 97px;
+    padding-right: 188px;
+    margin-left: 106px;
 }
+
 
 
 .agile {
@@ -1048,7 +1070,94 @@ FACTS
     }
     height: 500px;
 
-    &--1 {
-    /*    background-image: url(/images/logo.png);*/
+    /*&--1 {
+          background-image: url(/images/logo.png);
+    }*/
+
+   }
+
+
+.img-slider{
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+  width: 400px;
+}
+
+.img-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right:0;
+  }
+
+
+
+/* --------------------------------
+
+Category Page
+
+-------------------------------- */
+
+.containter-category{
+    text-align: center;
+    color: #5d4a4a;
+    background-attachment: scroll;
+    background-image: url(/images/cancer.jpg);
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    /*margin-left: 94px;*/
+    margin-top: -23px;
+}
+
+.intro-text{
+    position: relative;
+    padding: 16% 54%15% 13px;
+}
+
+.category {
+    &__list {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 25px;
+        display: flex;
+        flex-wrap: wrap;
     }
 }
+
+.welcome-section {
+  background-color: #fff;
+    padding-bottom: 40px;
+    box-shadow: 0 0 3px #ccc;
+    padding: 30px;
+}
+
+.welcome-section img {
+    width: 100%;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+
+
+.welcome-section h4 {
+    padding-top: 20px;
+    color: #777;
+}
+
+.welcome-section p {
+    padding-top: 20px;
+    color: #999;
+}
+
+.welcome-section:hover .border {
+    margin: 0 40%;
+}
+
+

@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index() 
     {
         $categories = Category::orderBy('created_at', 'desc')
-            ->get(['id', 'name']);
+            ->get(['id', 'name', 'image']);
 
         return response()
             ->json([

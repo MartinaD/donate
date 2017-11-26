@@ -21,7 +21,7 @@ class CampaignController extends Controller
     public function index() 
     {
         $campaigns = Campaign::orderBy('created_at', 'desc')
-            ->get(['id', 'title', 'body']);
+            ->get(['id', 'title', 'body', 'image']);
 
         return response()
             ->json([
@@ -46,7 +46,7 @@ class CampaignController extends Controller
             'goalamount' =>'required|digits_between:3,7',
             'body' => 'required',
             'category' => 'required',
-            //'image' => 'required|image',
+            'image' => 'required|image',
 
         ]);
 
@@ -73,15 +73,21 @@ class CampaignController extends Controller
         $campaign->save(); 
        
 
-        foreach($request->tags as $t) {
-            $tag = Tag::where('name', $t['name'])->first();
-            if (!$tag) {
-                $tag = new Tag();
-            }
-            $tag->name = $t['name'];
-            $tag->save();
-            $campaign->tags()->attach($tag->id);
-        }       
+        if($request->tags){
+
+            foreach($request->tags as $t) {
+
+                if($t!=''){
+                    $tag = Tag::where('name', $t['name'])->first();
+                    if (!$tag) {
+                        $tag = new Tag();
+                    }
+                    $tag->name = $t['name'];
+                    $tag->save();
+                    $campaign->tags()->attach($tag->id);
+                }
+            }  
+        }
          
         return response()
             ->json([

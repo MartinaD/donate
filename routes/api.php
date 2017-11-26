@@ -21,4 +21,5 @@ Route::post('login', 'AuthController@login');
 Route::post('logout', 'AuthController@logout');
 
 Route::resource('campaigns', 'CampaignController');
+Route::resource('posts', 'PostController');
 Route::resource('categories', 'CategoryController');

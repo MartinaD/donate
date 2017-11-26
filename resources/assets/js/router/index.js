@@ -6,6 +6,8 @@ import Login from '../views/Auth/Login.vue'
 import Register from '../views/Auth/Register.vue'
 import CampaignForm from '../views/Campaign/Form.vue'
 import CampaignIndex from '../views/Campaign/Index.vue'
+import IndexCategories from '../views/Campaign/IndexCategories.vue'
+
 
 
 
@@ -20,9 +22,8 @@ const router = new VueRouter({
 		{ path: '/login', component: Login },
 		{ path: '/register', component: Register },
 		{ path: '/campaign/create', component: CampaignForm, meta: { mode: 'create' }},
+		{ path: '/categories/:categoryname', component: IndexCategories },
 
-
-	
 	]
 })
 

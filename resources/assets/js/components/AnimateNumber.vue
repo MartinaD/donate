@@ -1,10 +1,11 @@
 <template>
-	<div class="image" @click="animate">
+	<div class="image" >
 		<h1> {{displayNumber}} </h1>
 	</div>
 </template>
 
 <script type="text/javascript">
+	import Vue from 'vue'
 	export default {
 		props: {
 			number: {default:23}
@@ -19,6 +20,13 @@
  		 ready:function(){
     		this.displayNumber = this.number ? this.number : 0;
   			},
+
+  		created: function () {
+        window.addEventListener('scroll', this.animate);
+    	},
+    	destroyed: function () {
+      	  window.removeEventListener('scroll', this.animate);
+    },
 
   		methods: {
             animate() {
@@ -41,4 +49,6 @@
    		}
 
 }
+
+
 </script>

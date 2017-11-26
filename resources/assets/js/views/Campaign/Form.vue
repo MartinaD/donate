@@ -105,11 +105,13 @@
             get('/api/categories')
                 .then((res) => {
                     this.categories = res.data.categories
-                })
+                }),
+             this.form.tags.push({name: ''})  
         },
         methods: {
             save() {
-                post(this.storeURL, this.form)
+                const form = toMulipartedForm(this.form, this.$route.meta.mode)
+                post(this.storeURL, form)
                     .then((res) => {
                         if(res.data.saved) {
                             Flash.setSuccess(res.data.message)

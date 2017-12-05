@@ -11,16 +11,35 @@
             </div>
         </div>
 
-        <div class="campaign__list">
-			<div class="col-md-4 col-sm-4 campaign__item" v-for="campaign in campaigns">
-				 <div class="campaign-section text-center waves-effect">
-				<router-link class="campaign__inner" :to="`/campaigns/${campaign.title}`">
-					<img :src="`/uploads/${campaign.image}`" v-if="campaign.image">
-					<p class="campaign__name">{{campaign.title}}</p>
-				</router-link>
-				</div>
-			</div>
-		</div>
+         <!-- Start Campaign Section -->
+	    <section id="service" class="services-section">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-12">
+	                    <div class="section-title text-center">
+	                        <h2>Our Services</h2>
+	                        <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+	                    </div>
+	                </div>
+	            </div>
+
+	            <div class="row">
+	                <div class="col-md-3 col-sm-6 col-xs-12"  v-for="campaign in campaigns">
+	                    <div class="service waves-effect">
+	                        <i class="fa fa-magic"></i>
+	                        <div class="border"></div>
+	                        <div class="service-content">
+	                            <router-link class="campaign__inner" :to="`/campaigns/${campaign.id}`">
+									<img :src="`/images/${campaign.image}`" v-if="campaign.image">
+									<p class="campaign__name">{{campaign.title}}</p>
+								</router-link>
+	                        </div>
+	                    </div>
+	                </div><!-- /.col-md-3 -->
+	            </div>
+	        </div>
+	    </section>
+	    <!-- End Campaign Section -->
 		
 
 	</div>

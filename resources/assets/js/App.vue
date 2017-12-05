@@ -1,62 +1,44 @@
 <template>
-	<div class="container">
-		<div class="navbar">
+	<div  id="main_div">
+		<div class="content-block" id="header">
+	        <div id="overlay-11">
+	            <header id="site-header" class="clearfix">
+	                <div class="pull-left">
+	               		<router-link to="/">
+	                    	<img src="/images/logo.png" id="logo" class="logo img-responsive">
+	                    </router-link> 
+	                </div>
+	                <div class="pull-right">
+	                    <nav class="navbar site-nav" role="navigation">
+	                    <!-- Brand and toggle get grouped for better mobile display -->
+	                        <div class="navbar-header">
+	                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                                <i class="fa fa-bars fa-2x"></i>
+	                            </button>
+	                        </div>
 
-			<div class="navbar__brand">
-				<router-link to="/">
-					<img src="/images/logo.png" id="logo" class="logo img-responsive">
-				</router-link>
-				
-			</div>
-
-			<div class="navbar__item" v-if="auth">
-				<router-link to="/campaign/create">Create new campaign</router-link>
-			</div>
-
-			<div class="navbar__item" v-if="guest">
-				<router-link to="/login">Create new campaign</router-link>
-			</div>
-
-			<div :class="[isOpen ? 'menu-wrap' : 'menu-wrap-close']" transition="expand">
-				
-					<div class="icon-list">
-						<a href="#home" class="logo page-scroll waves-effect">Navigator</a>
-
-						<a v-if="auth" class="page-scroll waves-effect">
-							<i class="fa fa-fw fa-user"></i>
-								<span @click.stop="logout">Logout</span>
-						</a>
-
-						<a v-if="guest" href="#login" class="page-scroll waves-effect">
-							<i class="fa fa-fw fa-user"></i>
-								<span>Login</span>
-						</a>
-						
-						<a href="#portfolio" class="page-scroll waves-effect">
-							<i class="fa fa-fw fa-bell-o"></i>
-								<span>Portfolio</span>
-						</a>
-					</div>
-				<button  @click.stop="closeMenu" class="close-button" id="close-button"></button>
-			</div>
-				
-			<li class="navbar__item">
-					<button @click.stop="openMenu" class="menu-button waves-effect" id="open-button"></button>
-				</li>	
-			</ul>
-
-		</div>
-
-		<div class="flash flash__error" v-if="flash.error">
-			{{flash.error}}
-		</div>
-
-		<div class="flash flash__success" v-if="flash.success">
-			{{flash.success}}
-		</div>
+	                    <!-- Collect the nav links, forms, and other content for toggling -->
+	                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                            <ul class="nav navbar-nav">
+	                                <li class="active">
+										<router-link to="/campaign/create" v-if="auth">Донирај</router-link>
+										<router-link to="/login" v-if="guest">Донирај</router-link>
+	                                </li>
+	                                <li><a href="#portfolio"><i class="fa fa-bookmark"></i> Portfolio</a></li>
+	                                <li><a href="#services"><i class="fa fa-bullhorn"></i> Me</a></li>
+	                                <li><a href="#testimonials"><i class="fa fa-thumbs-up"></i> Tetimonials</a></li>
+	                                <li><a href="#contact"><i class="fa fa-phone-square"></i> Contact</a></li>
+	                            </ul>
+	                        </div>  <!-- /.navbar-collapse -->
+	                    </nav>
+	                </div>
+	            </header>	<!-- site-header -->    
+	        </div>  <!-- overlay-1 -->
+		</div>  <!-- content-block -->
 
 		<router-view></router-view>
 
+		FOOOOOOTER
 	</div>
 </template>
 

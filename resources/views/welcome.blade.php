@@ -10,6 +10,7 @@
 
           <!-- Bootstrap core CSS -->
       <!--   <link href =" {{('css/bootstrap.min.css')}}" rel="stylesheet" /> -->
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
         <link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
@@ -23,6 +24,10 @@
     </body>
 
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 
 

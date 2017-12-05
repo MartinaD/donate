@@ -43,7 +43,7 @@
 			            	change = change >= 0 ? Math.ceil(change) : Math.floor(change);
 			           		this.displayNumber = this.displayNumber + change;
 			          	}
-					}.bind(this), 20);
+					}.bind(this), 100);
 
    		 	}
    		}

@@ -17,7 +17,7 @@
 					></vue-typer> </br></br>
 
                     <div class="navbar__item" v-if="auth">
-						<router-link to="/campaign/create" class="btn btn-lg btn-donate wow animated zoomIn">Донирај</router-link>
+						<router-link to="/categories" class="btn btn-lg btn-donate wow animated zoomIn">Донирај</router-link>
 					</div> 
 
 					<div class="navbar__item" v-if="guest">
@@ -29,7 +29,7 @@
         </div>
 
         <!-- Start Campaign Section -->
-	    <div id="service" class="services-section">
+	    <div class="services-section">
 	        <div class="container">
 	            <div class="row">
 	                <div class="col-md-12">
@@ -56,11 +56,6 @@
 	        </div>
 	    </div>
 	    <!-- End Campaign Section -->
-
-
-
-		
-
 
 		<!-- Start Facts Section -->
 		<div id="facts" class="facts mt-100 mbr-box mbr-section mbr-section--relative">
@@ -107,7 +102,7 @@
 		</div>
 
 		<svg preserveAspectRatio="none" viewBox="0 0 100 102" height="100" width="100%">
-			<path d="M0 0 L50 100 L100 0 Z" fill="#7AE2DE" stroke=""></path>
+			<path d="M0 0 L50 100 L100 0 Z" fill="#1ea78d" stroke=""></path>
 		</svg>
 		<!-- End Facts Section -->
 		
@@ -202,6 +197,79 @@
 			</div>
 		</div>
 		<!-- End Categories Section -->
+
+
+
+		<!--Start Contact Section-->		
+		<section id="contact" class="contact">
+			<div class="container">
+				<div class="row mb50">
+				
+					<div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
+						<h2>Let’s Discuss</h2>
+						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+					</div>
+					
+					<div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+					</div>
+					
+					<!-- contact address -->
+					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
+						<div class="contact-address">
+							<h3>Cras at ultrices erat, sed vulputate!</h3>
+							<p>2345 Setwant natrer, 1234,</p>
+							<p>Washington. United States.</p>
+							<p>(401) 1234 567</p>
+						</div>
+					</div>
+					<!-- end contact address -->
+					
+					<!-- contact form -->
+					<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
+						<div class="contact-form">
+							<h3>Say hello!</h3>
+							<form action="#" id="contact-form">
+								<div class="input-group name-email">
+									<div class="input-field">
+										<input type="text" name="name" id="name" placeholder="Name" class="form-control">
+									</div>
+									<div class="input-field">
+										<input type="email" name="email" id="email" placeholder="Email" class="form-control">
+									</div>
+								</div>
+								<div class="input-group">
+									<textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
+								</div>
+								<div class="input-group">
+									<input type="submit" id="form-submit" class="pull-right" value="Send message">
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- end contact form -->
+					
+					<!-- footer social links -->
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms" data-wow-delay="600ms">
+						<ul id="footer-social">
+							<li><a href="https://www.behance.net/Themefisher"><i class="fa fa-behance fa-2x"></i></a></li>
+							<li><a href="https://www.twitter.com/Themefisher"><i class="fa fa-twitter fa-2x"></i></a></li>
+							<li><a href="https://dribbble.com/themefisher"><i class="fa fa-dribbble fa-2x"></i></a></li>
+							<li><a href="https://www.facebook.com/Themefisher"><i class="fa fa-facebook fa-2x"></i></a></li>
+						</ul>
+					</div>
+					<!-- end footer social links -->
+					
+				</div>
+			</div>
+			
+			<!-- Google map -->
+			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div>
+			<!-- End Google map -->
+			
+		</section>
+		
+        <!--End Contact Section-->
 
 	</div>
 </template>

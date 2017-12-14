@@ -17,11 +17,11 @@
 					></vue-typer> </br></br>
 
                     <div class="navbar__item" v-if="auth">
-						<router-link to="/categories" class="btn btn-lg btn-donate wow animated zoomIn">Донирај</router-link>
+						<router-link to="/categories" class="btn btn-lg btn-donate">Донирај</router-link>
 					</div> 
 
 					<div class="navbar__item" v-if="guest">
-						<router-link to="/login" class="btn btn-lg btn-donate wow animated zoomIn">Донирај</router-link>
+						<router-link to="/login" class="btn btn-lg btn-donate">Донирај</router-link>
 					</div> 
 
                 </div>  <!-- container -->
@@ -167,109 +167,27 @@
 								<i :class="['fa fa-5x fa-' + category.image]" aria-hidden="true"></i>
 							</router-link>
 						</div>	
+						<div class="item" v-for="category in categories">
+							<router-link class="category__inner" :to="`/categories/${category.name}`">
+								<i :class="['fa fa-5x fa-' + category.image]" aria-hidden="true"></i>
+							</router-link>
+						</div>
+						<div class="item" v-for="category in categories">
+							<router-link class="category__inner" :to="`/categories/${category.name}`">
+								<i :class="['fa fa-5x fa-' + category.image]" aria-hidden="true"></i>
+							</router-link>
+						</div>
+
 					</div>
 				</div>
-
-				<div  v-if="show === true" class="row">
-					<div id="owl-demo">
-						<div class="item" v-for="category in categories">
-							<router-link class="category__inner" :to="`/categories/${category.name}`">
-								<i :class="['fa fa-5x fa-' + category.image]" aria-hidden="true"></i>
-							</router-link>
-						</div>	
-					</div>
-
-
-					<div id="owl-demo">
-						<div class="item" v-for="category in categories">
-							<router-link class="category__inner" :to="`/categories/${category.name}`">
-								<i :class="['fa fa-5x fa-' + category.image]" aria-hidden="true"></i>
-							</router-link>
-						</div>	
-					</div>
-				</div>			
-
-
 			</div>
-
-			<div class="show-more" @click="showMoreLess">
-				<strong> {{showText}} </strong>
-			</div>
+			
 		</div>
 		<!-- End Categories Section -->
 
+		<contact></contact>
 
-
-		<!--Start Contact Section-->		
-		<section id="contact" class="contact">
-			<div class="container">
-				<div class="row mb50">
-				
-					<div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
-						<h2>Let’s Discuss</h2>
-						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
-					</div>
-					
-					<div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
-					</div>
-					
-					<!-- contact address -->
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
-						<div class="contact-address">
-							<h3>Cras at ultrices erat, sed vulputate!</h3>
-							<p>2345 Setwant natrer, 1234,</p>
-							<p>Washington. United States.</p>
-							<p>(401) 1234 567</p>
-						</div>
-					</div>
-					<!-- end contact address -->
-					
-					<!-- contact form -->
-					<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
-						<div class="contact-form">
-							<h3>Say hello!</h3>
-							<form action="#" id="contact-form">
-								<div class="input-group name-email">
-									<div class="input-field">
-										<input type="text" name="name" id="name" placeholder="Name" class="form-control">
-									</div>
-									<div class="input-field">
-										<input type="email" name="email" id="email" placeholder="Email" class="form-control">
-									</div>
-								</div>
-								<div class="input-group">
-									<textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
-								</div>
-								<div class="input-group">
-									<input type="submit" id="form-submit" class="pull-right" value="Send message">
-								</div>
-							</form>
-						</div>
-					</div>
-					<!-- end contact form -->
-					
-					<!-- footer social links -->
-					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms" data-wow-delay="600ms">
-						<ul id="footer-social">
-							<li><a href="https://www.behance.net/Themefisher"><i class="fa fa-behance fa-2x"></i></a></li>
-							<li><a href="https://www.twitter.com/Themefisher"><i class="fa fa-twitter fa-2x"></i></a></li>
-							<li><a href="https://dribbble.com/themefisher"><i class="fa fa-dribbble fa-2x"></i></a></li>
-							<li><a href="https://www.facebook.com/Themefisher"><i class="fa fa-facebook fa-2x"></i></a></li>
-						</ul>
-					</div>
-					<!-- end footer social links -->
-					
-				</div>
-			</div>
-			
-			<!-- Google map -->
-			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div>
-			<!-- End Google map -->
-			
-		</section>
 		
-        <!--End Contact Section-->
 
 	</div>
 </template>
@@ -278,12 +196,14 @@
 <script type="text/javascript">
 	import Auth from '../../store/auth'
     import AnimateNumber from '../../components/AnimateNumber.vue'
+    import ContactTemplate from '../../components/ContactTemplate.vue'
     import VueAgile from 'vue-agile'
 	Vue.use(VueAgile)
 	import { VueTyper } from 'vue-typer'
 	import Vue from 'vue'
     Vue.component('animated-number', AnimateNumber)
-	import { get } from '../../helpers/api'
+    Vue.component('contact', ContactTemplate)
+	import { post, get } from '../../helpers/api'
 	export default {
 		components: {
    			 VueTyper
@@ -295,7 +215,7 @@
 				campaigns: [],
 				posts: [],
 				categories: [],
-				authState: Auth.state,
+				authState: Auth.state,            
 			}
 		},
 		computed: {
@@ -311,6 +231,7 @@
 			}
 		},
 		methods: {
+			
 			showMoreLess() {
 				if(this.show == true){
 					this.show = false

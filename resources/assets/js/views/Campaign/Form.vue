@@ -1,5 +1,6 @@
 <template>
     <div class="campaign__show">
+        
         <div class="campaign__header">
             <h3>{{action}} Campaign</h3>
             <div>

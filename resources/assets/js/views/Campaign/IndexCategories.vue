@@ -40,7 +40,6 @@
 	        </div>
 	    </section>
 	    <!-- End Campaign Section -->
-		
 
 	</div>
 </template>

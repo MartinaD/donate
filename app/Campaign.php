@@ -34,6 +34,7 @@ class Campaign extends Model
              'campaign_id', 'tag_id');
     }
 
+
      public static function form()
     {
         return [

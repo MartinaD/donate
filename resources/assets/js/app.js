@@ -3,12 +3,14 @@ import Vue from 'vue'
 import App from './App.vue' //main app component
 import router from './router'
 
+
 const app = new Vue({
 	el: '#root',
 	template: `<app></app>`,
 	components: { App },
 	router
 })
+
 
 
 

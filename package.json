@@ -17,13 +17,19 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "moment": "^2.20.0",
     "owl.carousel": "^2.2.0",
+    "v-money": "^0.8.1",
     "vee-validate": "^2.0.0-beta.17",
     "vue": "^2.2.2",
+    "vue-bulma-modal": "^1.0.1",
     "vue-in-viewport-mixin": "^1.0.3",
     "vue-js-dropdown": "^1.0.2",
+    "vue-js-modal": "^1.3.6",
+    "vue-money": "0.0.51",
     "vue-router": "^2.3.0",
     "vue-scroll": "^2.0.3",
+    "vue-the-mask": "^0.11.1",
     "vue-typer": "^1.0.6",
     "vue-upload-image": "^1.0.5"
   }

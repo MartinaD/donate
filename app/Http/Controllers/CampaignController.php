@@ -20,12 +20,27 @@ class CampaignController extends Controller
 
     public function index() 
     {
-        $campaigns = Campaign::orderBy('created_at', 'desc')
-            ->get(['id', 'title', 'body', 'image']);
+        $campaigns = Campaign::orderBy('created_at', 'desc')->offset(0)->limit(9)
+            ->get(['id', 'title', 'body', 'image', 'goalamount']);
 
         return response()
             ->json([
-                'campaigns' => $campaigns
+                'campaigns' => $campaigns,
+                'progress' => 20
+            ]);
+    }
+
+    public function getMoreCamp(Request $request) 
+    {
+        $campaigns = Campaign::orderBy('created_at', 'desc')->offset(0)->limit(request('limit'))
+            ->get(['id', 'title', 'body', 'image', 'goalamount']);
+
+        $campaigns->progress = 20;
+
+        return response()
+            ->json([
+                'campaigns' => $campaigns,
+                'progress' => 20
             ]);
     }
 
@@ -100,11 +115,12 @@ class CampaignController extends Controller
 
     public function show($id)
     {
-        $campaign = Campaign::with(['user_id'])->findOrFail($id);
-
+        $campaign = Campaign::where('id', '=', $id)->first();
+        $category = Category::where('id', '=', $campaign->category_id)->first();
         return response()
             ->json([
-                'campaign' => $campaign
+                'campaign' => $campaign,
+                'category' => $category
             ]);
     }
 

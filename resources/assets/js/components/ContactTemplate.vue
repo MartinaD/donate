@@ -62,7 +62,7 @@
 			<!-- End Google map -->
 		</section>
         <!--End Contact Section-->
-
+        
     </div>
 
 </template>
@@ -70,6 +70,8 @@
 <script type="text/javascript">
 	import Vue from 'vue'
 	import GoogleMap from './GoogleMap.vue'
+	import Footer from './../components/Footer.vue'
+	Vue.component('footer-cmp', Footer)
 	Vue.component('gmap', GoogleMap)
 	import { post } from '../helpers/api'
 

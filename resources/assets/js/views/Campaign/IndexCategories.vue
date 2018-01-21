@@ -24,41 +24,77 @@
 	            </div>
 
 	            <div class="row">
-	                <div class="col-md-3 col-sm-6 col-xs-12"  v-for="campaign in campaigns">
-	                    <div class="service waves-effect">
-	                        <i class="fa fa-magic"></i>
-	                        <div class="border"></div>
-	                        <div class="service-content">
-	                            <router-link class="campaign__inner" :to="`/campaigns/${campaign.id}`">
-									<img :src="`/images/${campaign.image}`" v-if="campaign.image">
-									<p class="campaign__name">{{campaign.title}}</p>
-								</router-link>
-	                        </div>
+	                <div class="col-md-4 col-sm-6 col-xs-12"  v-for="campaign in campaigns">
+	                    <div class="service-content">
+	                        <router-link class="campaign__inner" :to="`/campaigns/${campaign.id}`">
+								<img class="campaign_img" :src="`/uploads/${campaign.image}`" v-if="campaign.image">
+								<div class="bottom-left">{{campaign.title}} </div>
+								  
+  								<div class="progress-bar" :style="'width:' + progress + '%'"></div>
+						
+							</router-link>
+							<div class="campaign__name"><b>{{campaign.totalamount}}23 МКД</b> од {{campaign.goalamount}} МКД</div>
+							
+								
 	                    </div>
-	                </div><!-- /.col-md-3 -->
+	                </div><!-- /.col-md-4 -->
 	            </div>
+
+	            <div class="btn btn__primary showMore" @click="showMoreCampaigns">
+ 						<strong> {{showText}} </strong>
+ 				</div>
 	        </div>
 	    </section>
 	    <!-- End Campaign Section -->
+	  
+    <categories-cmp></categories-cmp>
+    <footer-cmp></footer-cmp>
 
-	</div>
+</div>
 </template>
 
 
 <script type="text/javascript">
-	import { get } from '../../helpers/api'
-	export default {
-	
-		data() {
-			return {
-				campaigns: [],
-			}
-		},
-		created() {
-			get('/api/campaigns')
-				.then((res) => {
-					this.campaigns = res.data.campaigns
-				})
+import { get, post } from '../../helpers/api'
+import Vue from 'vue'
+import Footer from '../../components/Footer.vue'
+Vue.component('footer-cmp', Footer)
+import Categories from '../../components/Categories.vue'
+Vue.component('categories-cmp', Categories)
+
+export default {
+
+	data() {
+		return {
+			campaigns: [],
+			limit: 9,
+			moreURL: '/api/more-campaigns',
+			showText: 'Покажи повеќе акции',  
+			progress: 0, 
 		}
-	}
+	},
+	methods: {
+		showMoreCampaigns() {
+				this.show = false
+				this.showText = "Покажи повеќе акции"
+				this.limit +=9
+				var dict = new Object()
+				var dict = {limit: this.limit,}
+				post(this.moreURL, dict)
+                .then((res) => {
+                    if(res.data.campaigns) {
+                       this.campaigns = res.data.campaigns
+                    }
+                })
+			}	
+	},
+	created() {
+		get( `/api/categories/${this.$route.params.name} `)
+			.then((res) => {
+				this.campaigns = res.data.campaigns
+				this.progress = res.data.progress
+			})	
+			},
+}
+	
 </script>

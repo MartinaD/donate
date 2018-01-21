@@ -1,26 +1,40 @@
 <template>
-    <div>
-        <form class="form" @submit.prevent="login">
-            <h1 class="form__title">Најави се!</h1>
-            <div class="form__group">
-                <label>Корисничко име</label>
-                <input type="text" class="form__control" v-model="form.email" placeholder="email@domain.com">
-                <small class="error__control" v-if="error.email">{{error.email[0]}}</small>
-            </div>
-            <div class="form__group">
-                <label>Лозинка</label>
-                <input type="password" class="form__control" v-model="form.password" placeholder="********">
-                <small class="error__control" v-if="error.password">{{error.password[0]}}</small>
-            </div>
-            <div class="form__group">
-                <button :disabled="isProcessing" class="btn btn__primary">Најави се</button>
-            </div>
-            <div class="form__group" style="float: right;">
-                <a href="#/register">Регистрирај се</a>
-            </div>
-        </form>
+<div>
+    <div class="category-header"></div>
 
+    <div class="container container_form">
+
+        <section id="content">
+            <form  @submit.prevent="login">
+                <h1 class="form__title">Најави се!</h1>
+                <div >
+                    <input type="text" v-model="form.email" placeholder="Корисничко име">
+                    <i class="fa fa-user fa-lg input-icon-username" aria-hidden="true"></i> <br>
+                    <small class="error__control" v-if="error.email">{{error.email[0]}}</small>
+                </div>
+                <div >
+                    <input type="password" v-model="form.password" placeholder="Лозинка">
+                    <i class="fa fa-lock fa-lg input-icon-psw" aria-hidden="true"></i>
+                    <small class="error__control" v-if="error.password">{{error.password[0]}}</small>
+                </div>
+                <div>
+                    <button :disabled="isProcessing" class="btn btn__primary"> Најави се</button>
+                </div>
+              
+
+                <hr>
+                
+                <div >
+                   
+                    <router-link to="/register">
+                         <h1>Креирај нов профил!</h1>
+                    </router-link>
+                </div>
+            </form>
+
+        </section>
     </div>
+</div>
 
 
 </template>

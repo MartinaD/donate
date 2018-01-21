@@ -29,6 +29,7 @@ class CreateCampaignsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->integer('goalamount')->default(0);
+            $table->integer('totalamount')->default(0);
             $table->string('image')->nullable();
             $table->timestamps();
         });

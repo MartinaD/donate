@@ -1,6 +1,7 @@
 <template>
+<div>
+<div class="category-header"></div>
     <div class="campaign__show">
-        
         <div class="campaign__header">
             <h3>{{action}} Campaign</h3>
             <div>
@@ -68,6 +69,8 @@
             </div>
         </div>
         
+    </div>
+
     </div>
 </template>
 

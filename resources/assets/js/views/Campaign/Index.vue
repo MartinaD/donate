@@ -42,16 +42,13 @@
 
 	            <div class="row">
 	                <div class="col-md-4 col-sm-6 col-xs-12"  v-for="campaign in campaigns">
-	                    <div class="service waves-effect">
-	                        <div class="border"></div>
 	                        <div class="service-content">
 	                            <router-link class="campaign__inner" :to="`/campaigns/${campaign.id}`">
-									<img :src="`/uploads/${campaign.image}`" v-if="campaign.image">
+									<img class="campaign_img" :src="`/uploads/${campaign.image}`" v-if="campaign.image">
 									<p class="campaign__name">{{campaign.title}}</p>
 								</router-link>
 	                        </div>
-	                    </div>
-	                </div><!-- /.col-md-3 -->
+	                </div><!-- /.col-md-4 -->
 	            </div>
 	        </div>
 	    </div>
@@ -154,38 +151,13 @@
         </div>	<!-- content-block -->
 
         <!-- Start Categories Section -->
-		<div id="categories" class="categories mbr-box mbr-section mbr-section--relative">
-			<svg preserveAspectRatio="none" viewBox="0 0 100 102" height="100" width="100%">
-				<path d="M0 0 L50 100 L100 0 Z" fill="#fff" stroke="#fff"></path>
-			</svg>
-
-			<div class="container">
-				<div class="row">
-					<div id="owl-demo">
-						<div class="item" v-for="category in categories">
-							<router-link class="category__inner" :to="`/categories/${category.name}`">
-								<i :class="['fa fa-5x fa-' + category.image]" aria-hidden="true"></i>
-							</router-link>
-						</div>	
-						<div class="item" v-for="category in categories">
-							<router-link class="category__inner" :to="`/categories/${category.name}`">
-								<i :class="['fa fa-5x fa-' + category.image]" aria-hidden="true"></i>
-							</router-link>
-						</div>
-						<div class="item" v-for="category in categories">
-							<router-link class="category__inner" :to="`/categories/${category.name}`">
-								<i :class="['fa fa-5x fa-' + category.image]" aria-hidden="true"></i>
-							</router-link>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			
-		</div>
+		<categories-cmp></categories-cmp>
+		
 		<!-- End Categories Section -->
 
 		<contact></contact>
+
+		<footer-cmp></footer-cmp>
 
 		
 
@@ -194,15 +166,19 @@
 
 
 <script type="text/javascript">
+	import Vue from 'vue'
 	import Auth from '../../store/auth'
     import AnimateNumber from '../../components/AnimateNumber.vue'
     import ContactTemplate from '../../components/ContactTemplate.vue'
+    import Footer from '../../components/Footer.vue'
+    import Categories from '../../components/Categories.vue'
     import VueAgile from 'vue-agile'
 	Vue.use(VueAgile)
 	import { VueTyper } from 'vue-typer'
-	import Vue from 'vue'
     Vue.component('animated-number', AnimateNumber)
     Vue.component('contact', ContactTemplate)
+    Vue.component('footer-cmp', Footer)
+    Vue.component('categories-cmp', Categories)
 	import { post, get } from '../../helpers/api'
 	export default {
 		components: {

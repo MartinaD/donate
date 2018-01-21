@@ -7,6 +7,7 @@ import Login from '../views/Auth/Login.vue'
 import Register from '../views/Auth/Register.vue'
 import CampaignForm from '../views/Campaign/Form.vue'
 import CampaignIndex from '../views/Campaign/Index.vue'
+import CampaignShow from '../views/Campaign/Show.vue'
 import IndexCategories from '../views/Campaign/IndexCategories.vue'
 import ShowCategories from '../views/Categories/ShowCategories.vue'
 
@@ -27,7 +28,8 @@ const router = new VueRouter({
 		{ path: '/login', component: Login },
 		{ path: '/register', component: Register },
 		{ path: '/campaign/create', component: CampaignForm, meta: { mode: 'create' }},
-		{ path: '/categories/:categoryname', component: IndexCategories },
+		{ path: '/campaigns/:id', component: CampaignShow },
+		{ path: '/categories/:name', component: IndexCategories },
 		{ path: '/categories', component: ShowCategories },
 
 	]

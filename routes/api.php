@@ -20,7 +20,9 @@ Route::post('register', 'AuthController@register');
 Route::post('login', 'AuthController@login');
 Route::post('logout', 'AuthController@logout');
 Route::post('ask-question', 'QuestionController@store');
-
+Route::post('more-campaigns', 'CampaignController@getMoreCamp');
 Route::resource('campaigns', 'CampaignController');
+
 Route::resource('posts', 'PostController');
+Route::resource('donations', 'DonationController');
 Route::resource('categories', 'CategoryController');

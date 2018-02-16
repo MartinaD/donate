@@ -862,15 +862,18 @@ cursor:auto;
 }
 
 .btn-donate {
+  text-decoration: none !important;
+  width: auto !important;
+  text-align: center;
   text-transform: uppercase;
   color: #111;
+  border-radius: 8px;
   border: 1px solid rgb(136, 138, 145);
   font-family: 'Oxygen', sans-serif;
   font-weight: 300;
   word-spacing: 5px;
   letter-spacing: 1px;
   box-shadow: 0 3px 1px 0 rgba(20, 20, 26, 0.55);
-  border-radius: 0;
   font-size: 18px;
   background-color: rgba(247, 255, 248, 1);
   padding: 16px 48px;

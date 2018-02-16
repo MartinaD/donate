@@ -17,11 +17,11 @@
 					></vue-typer> </br></br>
 
                     <div class="navbar__item" v-if="auth">
-						<router-link to="/categories" class="btn btn-lg btn-donate">Донирај</router-link>
+						<router-link to="/categories" class="btn-donate">Донирај</router-link>
 					</div> 
 
 					<div class="navbar__item" v-if="guest">
-						<router-link to="/login" class="btn btn-lg btn-donate">Донирај</router-link>
+						<router-link to="/login" class="btn-donate">Донирај</router-link>
 					</div> 
 
                 </div>  <!-- container -->
@@ -221,7 +221,7 @@
 			}
 		},
 		created() {
-			Auth.initialize(),
+		Auth.initialize(),
 			get('/api/campaigns')
 				.then((res) => {
 					this.campaigns = res.data.campaigns

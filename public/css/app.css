@@ -893,8 +893,12 @@ ul#footer-social {
 }
 
 .btn-donate {
+  text-decoration: none !important;
+  width: auto !important;
+  text-align: center;
   text-transform: uppercase;
   color: #111;
+  border-radius: 8px;
   border: 1px solid #888a91;
   font-family: 'Oxygen', sans-serif;
   font-weight: 300;
@@ -902,7 +906,6 @@ ul#footer-social {
   letter-spacing: 1px;
   -webkit-box-shadow: 0 3px 1px 0 rgba(20, 20, 26, 0.55);
           box-shadow: 0 3px 1px 0 rgba(20, 20, 26, 0.55);
-  border-radius: 0;
   font-size: 18px;
   background-color: #f7fff8;
   padding: 16px 48px;

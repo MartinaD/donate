@@ -28212,7 +28212,7 @@ if(false) {
 /* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(336)(undefined);
+exports = module.exports = __webpack_require__(313)(undefined);
 // imports
 
 
@@ -28548,7 +28548,7 @@ if(false) {
 /* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(336)(undefined);
+exports = module.exports = __webpack_require__(313)(undefined);
 // imports
 
 
@@ -31346,14 +31346,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), (_vm.auth) ? _c('div', {
     staticClass: "navbar__item"
   }, [_c('router-link', {
-    staticClass: "btn btn-lg btn-donate",
+    staticClass: "btn-donate",
     attrs: {
       "to": "/categories"
     }
   }, [_vm._v("Донирај")])], 1) : _vm._e(), _vm._v(" "), (_vm.guest) ? _c('div', {
     staticClass: "navbar__item"
   }, [_c('router-link', {
-    staticClass: "btn btn-lg btn-donate",
+    staticClass: "btn-donate",
     attrs: {
       "to": "/login"
     }
@@ -32895,30 +32895,7 @@ if (false) {
 /* 310 */,
 /* 311 */,
 /* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */,
-/* 318 */,
-/* 319 */,
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */,
-/* 334 */,
-/* 335 */,
-/* 336 */
+/* 313 */
 /***/ (function(module, exports) {
 
 /*
